@@ -12,9 +12,9 @@ class Phonebook {
     Phonebook();
     void    add();
     void    search();
-    void    display();
     private:
-    void printFormated(std::string str);
+    void    display();
+    void printFormated(std::string str, int i);
 };
 
 #endif

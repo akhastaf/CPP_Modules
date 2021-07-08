@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "phonebook.hpp"
 
 Phonebook::Phonebook()
@@ -6,36 +7,21 @@ Phonebook::Phonebook()
     this->index = 0;
 }
 
-void    Phonebook::printFormated(std::string str)
+void    Phonebook::printFormated(std::string str, int i)
 {
     int l;
-    int i;
-    int s;
 
     l = str.length();
-    std::cout << "# ";
     if (l < 10)
     {
-        s = (16 - l) / 2;
-        i = (16 - l) % 2 ? -1 : 0;
-        while (i < s)
-        {
-            std::cout << " ";
-            i++;
-        }
         std::cout << str;
+        std::cout << std::setw(10 - l);
     }
     if (l > 10)
-         std::cout << "   " << str.substr(0, 10) << "." << "   ";
-    if (l < 10)
-    {
-        i = (16 - l) % 2 ? -1 : 0;
-        while (i < s)
-        {
-            std::cout << " ";
-            i++;
-        }
-    }
+         std::cout << str.substr(0, 9) << ".";
+    std::cout << "|";
+    if (!i)
+        std::cout << std::endl;
 }
 
 void    Phonebook::add()
@@ -87,37 +73,36 @@ void    Phonebook::add()
 void    Phonebook::display()
 {
     int i;
-    int id;
 
-    std::cout << "##################|##################|##################|##################" << std::endl;
-    std::cout << "#      Index      #    Fisrt name    #     Last name    #    Nick name    #" << std::endl;
-    std::cout << "##################|##################|##################|##################" << std::endl;
+    this->printFormated("Index", 1);
+    this->printFormated("Fisrtname", 1);
+    this->printFormated("Lastname", 1);
+    this->printFormated("Nickname", 0);
     i = 0;
     while (i < this->index)
     {
         if (!(Contact::isEmpty(this->contacts[i])))
         {
-            std::cout << "#        " << this->contacts[i].getId() << "        ";
-
-            this->printFormated(this->contacts[i].getFisrtName());
-            this->printFormated(this->contacts[i].getLastName());
-            this->printFormated(this->contacts[i].getNickName());
-            std::cout << "#" << std::endl;
-            std::cout << "##################|##################|##################|##################" << std::endl;
+            this->printFormated(std::to_string(this->contacts[i].getId()), 1);
+            this->printFormated(this->contacts[i].getFisrtName(), 1);
+            this->printFormated(this->contacts[i].getLastName(), 1);
+            this->printFormated(this->contacts[i].getNickName(), 0);
         }
         i++;
     }
+}
+
+void    Phonebook::search()
+{
+    int id;
+
+    this->display();
     std::cout << "what index you want : ";
     std::cin >> id;
     if (id < 0 || id >= this->index)
         std::cout << "Not a valid index" << std::endl;
     else
         Contact::display(this->contacts[id]);
-}
-
-void    Phonebook::search()
-{
-    this->display();
 }
 
 int     main()
@@ -128,16 +113,13 @@ int     main()
     std::cout << "Welcome to my awesome Phonebook" << std::endl;
     while (1)
     {
-        std::cout << "Command valid are : ADD, SEARCH, EXIT" << std::endl;
-        std::cin >> cmd;
+        std::getline(std::cin, cmd);
         if (cmd == "ADD")
             phonebook.add();
         else if (cmd == "SEARCH")
             phonebook.search();
         else if (cmd == "EXIT")
             break ;
-        else
-            std::cout << "Error command (ADD, SEARCH, EXIT)" << std::endl;
     }
     return 0;
 }
