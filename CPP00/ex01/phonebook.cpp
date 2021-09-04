@@ -14,8 +14,8 @@ void    Phonebook::printFormated(std::string str, int i)
     l = str.length();
     if (l < 10)
     {
+        std::cout << std::setw(10 - l + 1);
         std::cout << str;
-        std::cout << std::setw(10 - l);
     }
     if (l > 10)
          std::cout << str.substr(0, 9) << ".";

@@ -2,11 +2,11 @@ C = clang++
 
 FLAGS = -Wall -Wextra -Werror
 
-NAME = replace
+NAME = Fixed
 
-SRC = main.cpp Replace.cpp
+SRC = main.cpp Fixed.cpp
 
-OBJ = main.o Replace.o
+OBJ = main.o Fixed.o
 
 all: $(NAME)
 
