@@ -16,15 +16,15 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     Fixed area;
     Fixed d, e, f;
     Fixed A, B, C;
-    if ((Point)point == (Point)a || (Point)point == (Point)c || (Point)point == (Point)c)
+    if ((Point)point == (Point)a || (Point)point == (Point)b || (Point)point == (Point)c)
         return false;
     a1 = ((Point)a).distance(b);
     b1 = ((Point)b).distance(c);
     c1 = ((Point)c).distance(a);
     area = calc_area(a1, b1, c1);
     d = ((Point)point).distance(a);
-    d = ((Point)point).distance(b);
-    d = ((Point)point).distance(c);
+    e = ((Point)point).distance(b);
+    f = ((Point)point).distance(c);
     A = calc_area(d, a1, e);
     B = calc_area(e, b1, f);
     C = calc_area(f, c1, d);
