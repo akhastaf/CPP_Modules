@@ -7,11 +7,20 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string const & name)
 {
-    std::cout << "ScavTrap copy constructor called" << std::endl;
+    std::cout << "ScavTrap parameter constructor called" << std::endl;
     this->setName(name);
     this->setHitPoints(100);
     this->setEnergyPoints(50);
     this->setAttackDamage(20);
+}
+
+ScavTrap::ScavTrap(ScavTrap const & src)
+{
+    std::cout << "ScavTrap copy constructor called" << std::endl;
+    this->setName(src.getName());
+    this->setHitPoints(src.getHitPoints());
+    this->setEnergyPoints(src.getEnergyPoints());
+    this->setAttackDamage(src.getAttackDamage());
 }
 
 ScavTrap::~ScavTrap()

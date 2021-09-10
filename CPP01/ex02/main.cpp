@@ -13,6 +13,6 @@ int     main()
     std::cout << "the address of the string by using the REF " << &stringREF << std::endl;
     
     std::cout << "the string by PTR : " << *stringPTR << std::endl;
-    std::cout << "the string by REF : " << stringREF << std::endl; 
+    std::cout << "the string by REF : " << stringREF << std::endl;
     return 0;
 }

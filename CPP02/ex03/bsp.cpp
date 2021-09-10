@@ -28,6 +28,8 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     A = calc_area(d, a1, e);
     B = calc_area(e, b1, f);
     C = calc_area(f, c1, d);
+    if (A == 0 || B == 0 || C == 0)
+        return false;
     if (area == A + B + C)
         return true;
     return false;

@@ -3,12 +3,13 @@
 #include <iostream>
 
 class  Zombie {
-    std::string name;
+    std::string _name;
     public:
     Zombie();
     Zombie(std::string name);
     ~ Zombie();
     void announce();
+    void setName(std::string const & name);
 };
 
 Zombie* zombieHorde( int N, std::string name );
