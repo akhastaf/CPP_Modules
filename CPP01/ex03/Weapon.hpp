@@ -4,7 +4,7 @@
 
 class Weapon
 {
-    std::string const _type;
+    std::string _type;
     public:
     Weapon();
     Weapon(std::string type);
