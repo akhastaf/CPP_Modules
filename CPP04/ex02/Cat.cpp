@@ -23,9 +23,7 @@ Cat::~Cat()
 
 Cat & Cat::operator= (Cat const & src)
 {
-    this->brain =  new Brain();
     this->type = src.getType();
-    *this->brain =  *(src.getBrain());
     return *this;
 }
 

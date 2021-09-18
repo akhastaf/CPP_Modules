@@ -12,8 +12,13 @@ int main()
             animals[i] = new Dog();
         else
             animals[i] = new Cat();
-        animals[i]->makeSound();
     }
+
+    Cat tom;
+    Cat kitty(tom);
+    tom.getBrain()->setIdea("test");
+    std::cout << tom.getBrain()->getIdea(0) << std::endl;
+    std::cout << kitty.getBrain()->getIdea(0) << std::endl;
 
     for (int i = 0; i < 10; i++)
     {
