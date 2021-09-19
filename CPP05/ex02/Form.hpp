@@ -1,8 +1,7 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 # include <iostream>
-
-class Bureaucrat;
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -13,12 +12,13 @@ class Form
         bool _isSigned;
     public:
         Form();
-        Form(std::string const & name, unsigned int minGardeForSigne, unsigned int _minGardeForExecute);
+        Form(std::string const & name, unsigned int minGardeForSigne, unsigned int minGardeForExecute);
         Form(Form const & src);
         ~Form();
         Form & operator= (Form const & src);
         std::string getName() const;
         bool getIsSigned() const;
+        void setIsSigned(int n);
         unsigned int getMinGardeForExecute() const;
         unsigned int getMinGardeForSigne() const;
         void beSigned(Bureaucrat & b);

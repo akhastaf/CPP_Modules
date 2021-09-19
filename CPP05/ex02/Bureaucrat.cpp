@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -14,7 +15,6 @@ Bureaucrat::Bureaucrat(std::string const & name, unsigned int grade): _Name(name
         throw Bureaucrat::GradeTooLowException();
     this->_Grade = grade;
 }
-
 
 Bureaucrat::Bureaucrat(Bureaucrat const & src)
 {
@@ -83,7 +83,7 @@ int    Bureaucrat::signForm(Form const & f)
 {
     if (!f.getIsSigned())
     {
-        std::cout << this->_Name << " signs <form>" << std::endl;
+        std::cout << this->_Name << " signs " << f.getName() << std::endl;
         return 1;
     }
     std::cout  << this->_Name << " cannot sign " << f.getName() << "because is signed" << std::endl;

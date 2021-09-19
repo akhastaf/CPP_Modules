@@ -47,6 +47,11 @@ bool Form::getIsSigned() const
     return this->_isSigned;
 }
 
+void Form::setIsSigned(int n)
+{
+    this->_isSigned = n;
+}
+
 unsigned int Form::getMinGardeForExecute() const
 {
     return this->_minGardeForExecute;
@@ -74,3 +79,4 @@ void    Form::beSigned(Bureaucrat & b)
     else if (b.signForm(*this))
         this->_isSigned = true;
 }
+
