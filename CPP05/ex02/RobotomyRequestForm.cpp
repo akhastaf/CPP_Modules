@@ -13,6 +13,8 @@ RobotomyRequestForm & RobotomyRequestForm::operator= (RobotomyRequestForm const 
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
+    if (executor.getGrade() > this->getMinGardeForExecute())
+        throw GradeTooLowException();
     std::cout << "Zzzzzzzzzzzzzzzzz..." << std::endl;
     std::cout << this->getTarget() << " has been robotomized successfully 50\\% of the time" << std::endl;
 }

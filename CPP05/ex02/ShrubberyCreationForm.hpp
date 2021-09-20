@@ -7,7 +7,7 @@
 class ShrubberyCreationForm : public Form
 {
 private:
-    ShrubberyCreationForm() : Form("","", 145, 137);
+    ShrubberyCreationForm() : Form("","", 145, 137){};
 public:
     ShrubberyCreationForm(std::string const & target) : Form("",target, 145, 137){};
     ShrubberyCreationForm(ShrubberyCreationForm const & src);

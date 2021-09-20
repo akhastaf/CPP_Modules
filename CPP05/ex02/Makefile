@@ -4,9 +4,9 @@ FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 NAME = Bureaucrat
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp 
 
-OBJ = main.o Bureaucrat.o Form.o ShrubberyCreationForm.o
+OBJ = main.o Bureaucrat.o Form.o ShrubberyCreationForm.o PresidentialPardonForm.o RobotomyRequestForm.o
 
 all: $(NAME)
 

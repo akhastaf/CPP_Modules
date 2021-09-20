@@ -1,32 +1,26 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
-	ShrubberyCreationForm f1;
+	Bureaucrat b1("nah", 15);
+	ShrubberyCreationForm f1("my");
+	RobotomyRequestForm f2("noise");
+	PresidentialPardonForm f3("nothig");
 
-	f1.createTree("my");
-	// Bureaucrat bob("bob", 10);
-
-	// try
-	// {
-	// 	bob.incGrade();
-	// 	std::cout << bob << std::endl;
-	// 	bob.incGrade();
-	// 	std::cout << bob << std::endl;
-	// }
-	// catch (const std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-
-	// Form formA("a", 10, 10);
-	// Form formB("b", 10, 10);
-	// bob.signForm(formA);
-	// bob.decGrade();
-	// bob.signForm(formB);
-	// std::cout << formA << std::endl;
-	// std::cout << formB << std::endl;
+	try
+	{
+		f1.execute(b1);
+		f2.execute(b1);
+		f3.execute(b1);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
 	return 0;
 }

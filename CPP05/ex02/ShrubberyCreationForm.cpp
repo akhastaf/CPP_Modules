@@ -16,8 +16,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
      return *this;
  }
 
-virtual void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
  {
+     if (executor.getGrade() > this->getMinGardeForExecute())
+        throw GradeTooLowException();
      std::ofstream file;
      file.open(this->getTarget() + "_shrubbery");
      if (!file.is_open())
