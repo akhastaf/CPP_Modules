@@ -11,8 +11,8 @@ RobotomyRequestForm & RobotomyRequestForm::operator= (RobotomyRequestForm const 
     return *this;
 }
 
-void RobotomyRequestForm::drill(std::string const & target) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     std::cout << "Zzzzzzzzzzzzzzzzz..." << std::endl;
-    std::cout << target << " has been robotomized successfully 50\\% of the time" << std::endl;
+    std::cout << this->getTarget() << " has been robotomized successfully 50\\% of the time" << std::endl;
 }

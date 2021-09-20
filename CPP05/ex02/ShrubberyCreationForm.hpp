@@ -7,17 +7,13 @@
 class ShrubberyCreationForm : public Form
 {
 private:
-    /* data */
+    ShrubberyCreationForm() : Form("","", 145, 137);
 public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(std::string const & name, unsigned int minGardeForSigne, unsigned int minGardeForExecute);
+    ShrubberyCreationForm(std::string const & target) : Form("",target, 145, 137){};
     ShrubberyCreationForm(ShrubberyCreationForm const & src);
     ~ShrubberyCreationForm();
     ShrubberyCreationForm & operator= (ShrubberyCreationForm const & src);
-    void    createTree(std::string const & filename);
+    virtual void execute(Bureaucrat const & executor) const;
 };
-
-
-
 
 #endif

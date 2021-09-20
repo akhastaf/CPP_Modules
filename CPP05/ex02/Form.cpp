@@ -6,8 +6,8 @@ Form::Form() : _minGardeForSigne(0), _minGardeForExecute(0)
     this->_isSigned = false;
 }
 
-Form::Form(std::string const & name, unsigned int minGardeForSigne, unsigned int minGardeForExecute)
-        : _name(name), _minGardeForSigne(minGardeForSigne), _minGardeForExecute(minGardeForExecute)
+Form::Form(std::string const & name, std::string const & target, unsigned int minGardeForSigne, unsigned int minGardeForExecute)
+        : _name(name), _target(target), _minGardeForSigne(minGardeForSigne), _minGardeForExecute(minGardeForExecute)
 {
     std::cout << "Form paramter coonstructor called" << std::endl;
     this->_isSigned = false;
@@ -30,11 +30,13 @@ Form::~Form()
 
 Form & Form::operator= (Form const & src)
 {
-    (std::string)this->_name = src.getName();
-    // (unsigned int)this->_minGardeForExecute = src.getMinGardeForExecute();
-    // (unsigned int)this->_minGardeForSigne = src.getMinGardeForSigne();
     this->_isSigned = src.getIsSigned();
     return *this;
+}
+
+std::string Form::getTarget() const
+{
+    return this->_target;
 }
 
 std::string Form::getName() const
@@ -79,4 +81,5 @@ void    Form::beSigned(Bureaucrat & b)
     else if (b.signForm(*this))
         this->_isSigned = true;
 }
+
 

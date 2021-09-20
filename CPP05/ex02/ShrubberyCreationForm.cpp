@@ -1,12 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("", 145, 137)
-{
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const & name, unsigned int minGardeForSigne, unsigned int minGardeForExecute) : Form(name, minGardeForSigne, minGardeForExecute)
-{
-}
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & src)
 {
@@ -23,12 +16,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
      return *this;
  }
 
- void   ShrubberyCreationForm::createTree(std::string const & filename)
+virtual void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
  {
      std::ofstream file;
-     file.open(filename + "_shrubbery");
+     file.open(this->getTarget() + "_shrubbery");
      if (!file.is_open())
-        throw std::string("can't open this file " + filename + "_shrubbery");
+        throw std::string("can't open this file " + this->getTarget() + "_shrubbery");
     file << "\
                 v .   ., |  .,\n\
             -._\\/  .  \\ /    |/_\n\

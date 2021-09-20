@@ -6,13 +6,13 @@
 class PresidentialPardonForm : public Form
 {
 private:
-    /* data */
+    PresidentialPardonForm() : Form("","", 25, 5){}
 public:
-    PresidentialPardonForm() : Form("", 25, 5){}
+    PresidentialPardonForm(std::string const & target) : Form("",target, 25, 5){}
     PresidentialPardonForm(PresidentialPardonForm const & src);
     ~PresidentialPardonForm(){}
     PresidentialPardonForm & operator=(PresidentialPardonForm const & src);
-    void pardon(std::string const & target) const;
+    virtual void execute(Bureaucrat const & executor) const;
 };
 
 

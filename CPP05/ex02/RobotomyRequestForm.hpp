@@ -6,13 +6,13 @@
 class RobotomyRequestForm : public Form
 {
     private:
-        /* data */
+        RobotomyRequestForm() : Form("","", 72, 75){}
     public:
-        RobotomyRequestForm() : Form("", 72, 75){}
+        RobotomyRequestForm(std::string const & target) : Form("",target 72, 75){}
         RobotomyRequestForm(RobotomyRequestForm const & src);
         ~RobotomyRequestForm(){};
         RobotomyRequestForm & operator= (RobotomyRequestForm const & src);
-        void drill(std::string const & target) const;
+        virtual void execute(Bureaucrat const & executor) const;
 };
 
 
