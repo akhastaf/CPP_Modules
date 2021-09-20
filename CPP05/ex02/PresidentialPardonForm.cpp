@@ -11,10 +11,10 @@ PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonFor
     return *this;
 }
 
-void execute(Bureaucrat const & executor) const
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (executor.getGrade() > this->getMinGardeForExecute())
         throw GradeTooLowException();
-    std::cout << target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+    std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
 
