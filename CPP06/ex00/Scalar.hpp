@@ -1,6 +1,7 @@
 #ifndef SCALAR_HPP
 # define SCALAR_HPP
 # include <iostream>
+# include <cmath>
 
 class Scalar
 {
@@ -14,6 +15,9 @@ class Scalar
         Scalar & operator=(Scalar const & src);
         std::string getValue() const;
         char toChar();
+        int toInt();
+        float toFloat();
+        double toDouble();
         
         class NonDisplayableException : public std::exception
         {
@@ -28,11 +32,11 @@ class Scalar
             public:
             virtual const char* what() const throw()
             {
-                return ": impossible";
+                return "impossible";
             }
         };
 };
 
-std::ofstream & operator<<(std::ofstream & o, Scalar const & src);
+std::ostream & operator<<(std::ostream & o, Scalar & src);
 
 #endif

@@ -1,4 +1,4 @@
-#include "Scalae.hpp"
+#include "Scalar.hpp"
 
 int main(int ac, char **av)
 {
