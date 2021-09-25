@@ -54,6 +54,7 @@ int main(int, char**)
     delete [] mirror;//
 
     Array<int> emptyArray;
+    std::cout << "empty array : " << emptyArray << std::endl; 
     std::cout << emptyArray.size() << std::endl;
     return 0;
 }
