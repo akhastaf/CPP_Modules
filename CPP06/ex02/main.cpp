@@ -78,6 +78,6 @@ int main()
     identify(ref7);
     identify(ref8);
     identify(ref9);
-
+    delete [] a;
     return 0;
 }
