@@ -2,7 +2,7 @@ C = clang++
 
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
-NAME = ex00
+NAME = span
 
 SRC = main.cpp span.cpp
 

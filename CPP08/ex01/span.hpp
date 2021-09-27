@@ -1,8 +1,8 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 # include <iostream>
-# include <iterator>
 # include <vector>
+# include <iterator>
 
 class Span {
     private:
@@ -12,32 +12,24 @@ class Span {
 
     public:
     Span(int n) : _n(n){};
-    Span(Span const & src);
     ~Span(){};
+    Span(Span const & src);
     Span & operator= (Span const & src);
     unsigned int getN() const;
-    std::vector const & getValues() const;
+    std::vector<int> const & getValues() const;
     void    addNumber(int n);
-    void    addNumber(std::vector::iterator begin, std::vector::iterator end);
+    void    addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
     int shortestSpan();
+    int longestSpan();
 
-    // int shortestSpan()
-    // {
-    //     std::vector copy(this->_values);
-    //     std::sort(copy.begin(), copy.end());
-    //     int min = *(copy.begin());
-    //     int nextmin = *(copy.begin()++);
-    //     return nextmin - min;
-    // }
-
-    class Span::OutOfRangeException : public std::exception
+    class OutOfRangeException : public std::exception
     {
         public:
         virtual const char * what() const throw()
         {
             return "out of range";
         }
-    }
+    };
 };
 
 

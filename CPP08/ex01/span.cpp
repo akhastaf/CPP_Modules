@@ -21,30 +21,44 @@ unsigned int Span::getN() const
     return this->_n;
 }
 
-std::vector const & Span::getValues() const
+std::vector<int> const & Span::getValues() const
 {
     return this->_values;
 }
 
 void    Span::addNumber(int n)
 {
-    if (this->_n > this->_values.size())
-        throw OutOfRangeException();
+    if (this->_n < this->_values.size())            
+        throw Span::OutOfRangeException();
     this->_values.push_back(n);
 }
 
-void    Span::addNumber(std::vector::iterator begin, std::vector::iterator end)
+void    Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    if (this->_n > this->_values.size() + std::distance(begin, end))
+    if (this->_n < this->_values.size() + std::distance(begin, end))
         throw OutOfRangeException();
-    this->_values.insert(begin, end);
+    this->_values.insert(this->_values.end(), begin, end);
 }
 
 int Span::shortestSpan()
 {
-    std::vector copy(this->_values);
+    std::vector<int> copy(this->_values);
     std::sort(copy.begin(), copy.end());
-    int min = *(copy.begin());
-    int nextmin = *(copy.begin()++);
-    return nextmin - min;
+    std::vector<int>::iterator min = copy.begin();
+    std::vector<int>::iterator nextmin = copy.begin();
+    nextmin++;
+    return *nextmin - *min;
+}
+
+int Span::longestSpan()
+{
+    std::vector<int> copy(this->_values);
+    std::sort(copy.begin(), copy.end());
+    std::vector<int>::iterator max = copy.end();
+    std::vector<int>::iterator prevmax = copy.end();
+    prevmax--;
+    prevmax--;
+    max--;
+    std::cout << *prevmax << " " << *max << std::endl;
+    return  *max - *prevmax;
 }
