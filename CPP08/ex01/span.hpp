@@ -15,6 +15,7 @@ class Span {
     ~Span(){};
     Span(Span const & src);
     Span & operator= (Span const & src);
+    int operator[] (int i);
     unsigned int getN() const;
     std::vector<int> const & getValues() const;
     void    addNumber(int n);
@@ -30,8 +31,23 @@ class Span {
             return "out of range";
         }
     };
+
+    class FullException : public std::exception
+    {
+        public:
+        virtual const char * what() const throw()
+        {
+            return "full";
+        }
+    };
+
+    class NoSpanException : public std::exception
+    {
+        public:
+        virtual const char * what() const throw()
+        {
+            return "no span can be found";
+        }
+    };
 };
-
-
-
 #endif
