@@ -8,7 +8,7 @@ Fixed calc_area(Fixed & a, Fixed & b, Fixed & c)
     return area;
 }
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool bsp( Point & a, Point & b, Point & c, Point & point)
 {
     Fixed a1;
     Fixed b1;
@@ -16,6 +16,7 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     Fixed area;
     Fixed d, e, f;
     Fixed A, B, C;
+    //std::cout << "A" << (Point)a << " B" << (Point)b << " C" << (Point)c << " Point" << (Point)point << std::endl;
     if ((Point)point == (Point)a || (Point)point == (Point)b || (Point)point == (Point)c)
         return false;
     a1 = ((Point)a).distance(b);

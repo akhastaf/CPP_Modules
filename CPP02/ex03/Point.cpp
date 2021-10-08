@@ -24,18 +24,20 @@ Point & Point::operator= (Point const & src)
 
 bool Point::operator== (Point const & src)
 {
-    if (this->getX() == src.getX() && this->getY() == src.getY())
+    if ((Fixed)this->_x == (Fixed)src.getX() && (Fixed)this->_y == (Fixed)src.getY())
         return true;
     return false;
 }
 
-Fixed    Point::getX() const
+Fixed const &   Point::getX() const
 {
     return this->_x;
 }
 
-Fixed    Point::getY() const
+Fixed  const &  Point::getY() const
 {
+
+    std::cout << "Y : " << this->_y << std::endl;
     return this->_y;
 }
 

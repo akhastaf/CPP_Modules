@@ -18,13 +18,13 @@ class Point
         ~Point();
         Point & operator= (Point const & src);
         bool operator== (Point const & src);
-        Fixed getX() const;
-        Fixed getY() const;
+        Fixed const & getX() const;
+        Fixed const & getY() const;
         Fixed distance(Point const & a);
 };
 
 std::ostream & operator<< (std::ostream & o, Point const & a); 
-bool bsp( Point const a, Point const b, Point const c, Point const point);
+bool bsp( Point & a, Point & b, Point & c, Point & point);
 
 
 #endif

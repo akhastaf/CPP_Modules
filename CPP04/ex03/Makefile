@@ -2,11 +2,11 @@ C = clang++
 
 FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
-NAME = Animal
+NAME = Interface
 
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp 
 
-OBJ = main.o Animal.o Dog.o Cat.o WrongAnimal.o WrongCat.o
+OBJ = main.o 
 
 all: $(NAME)
 
