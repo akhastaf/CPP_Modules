@@ -17,5 +17,5 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-
+    std::cout << "Ice: "* shoots an ice bolt at " NAME *""
 }

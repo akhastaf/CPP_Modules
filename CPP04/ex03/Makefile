@@ -4,9 +4,9 @@ FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 NAME = Interface
 
-SRC = main.cpp 
+SRC = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
-OBJ = main.o 
+OBJ = main.o AMateria.o Cure.o Ice.o Character.o MateriaSource.o
 
 all: $(NAME)
 
