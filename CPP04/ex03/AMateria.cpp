@@ -5,6 +5,10 @@ AMateria::AMateria()
 {
 
 }
+AMateria::~AMateria()
+{
+
+}
 
 AMateria::AMateria(std::string const & type) : type(type)
 {
@@ -17,5 +21,5 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "Ice: "* shoots an ice bolt at " NAME *""
+    std::cout << "* shoots an Materia bolt at " << target.getName() << " *" << std::endl;
 }

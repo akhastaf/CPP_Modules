@@ -49,8 +49,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
     {
         if (this->_inventory[i] && this->_inventory[i]->getType() == type)
         {
-            this->_inventory[i]->clone();
-            break;
+            return this->_inventory[i]->clone();
         }
     }
+    return NULL;
 }

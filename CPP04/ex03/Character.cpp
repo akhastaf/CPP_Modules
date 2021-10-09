@@ -17,7 +17,7 @@ Character::Character(Character const & src)
     *this = src;
 }
 
-~Character()
+Character::~Character()
 {
     for (int i = 0; i < 4; i++)
         if (this->_inventory[i])
@@ -34,9 +34,10 @@ Character & Character::operator= (Character const & src)
         for (int i = 0; i < 4; i++)
             this->_inventory[i] = src._inventory[i]->clone();
     }
+    return *this;
 }
 
-std::string const & getName() const
+std::string const & Character::getName() const
 {
     return this->_name;
 }
