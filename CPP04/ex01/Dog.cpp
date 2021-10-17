@@ -9,10 +9,7 @@ Dog::Dog()
 
 Dog::Dog(Dog const & src)
 {
-    std::cout << "Dog copy constructor called" << std::endl;
-    this->type = src.getType();
-    this->brain = new Brain();
-    *(this->brain) = *(src.getBrain());
+    *this = src;
 }
 
 Dog::~Dog()
@@ -23,7 +20,10 @@ Dog::~Dog()
 
 Dog & Dog::operator= (Dog const & src)
 {
+    std::cout << "Dog copy constructor called" << std::endl;
     this->type = src.getType();
+    this->brain = new Brain();
+    *(this->brain) = *(src.getBrain());
     return *this;
 }
 

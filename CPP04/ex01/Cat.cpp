@@ -9,10 +9,7 @@ Cat::Cat()
 
 Cat::Cat(Cat const & src)
 {
-    std::cout << "Cat copy constructor called" << std::endl;
-    this->type = src.getType();
-    this->brain = new Brain();
-    *(this->brain) = *(src.getBrain());
+   *this = src;
 }
 
 Cat::~Cat()

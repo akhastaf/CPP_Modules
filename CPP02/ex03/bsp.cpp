@@ -1,14 +1,15 @@
 #include "Point.hpp"
 
-Fixed calc_area(Fixed & a, Fixed & b, Fixed & c)
+Fixed calc_area(Fixed const & a, Fixed const & b, Fixed const & c)
 {
+    std::cout << "in calc_area function : A" << a << " B" << b << " C" << c  << std::endl;
     Fixed area;
-    Fixed s = Fixed((a + b + c).toFloat() / (float)2.0);
+    Fixed s = Fixed(((Fixed)a + (Fixed)b + (Fixed)c).toFloat() / (float)2.0);
     area = sqrtf(s.toFloat() * (s - a).toFloat() * (s - b).toFloat() * (s - c).toFloat());
     return area;
 }
 
-bool bsp( Point & a, Point & b, Point & c, Point & point)
+bool bsp( Point const & a, Point const & b, Point const & c, Point const & point)
 {
     Fixed a1;
     Fixed b1;
@@ -16,9 +17,7 @@ bool bsp( Point & a, Point & b, Point & c, Point & point)
     Fixed area;
     Fixed d, e, f;
     Fixed A, B, C;
-    //std::cout << "A" << (Point)a << " B" << (Point)b << " C" << (Point)c << " Point" << (Point)point << std::endl;
-    if ((Point)point == (Point)a || (Point)point == (Point)b || (Point)point == (Point)c)
-        return false;
+    std::cout << "in bsp function : A" << a << " B" << b << " C" << c << " Point" << point << std::endl;
     a1 = ((Point)a).distance(b);
     b1 = ((Point)b).distance(c);
     c1 = ((Point)c).distance(a);
@@ -29,6 +28,7 @@ bool bsp( Point & a, Point & b, Point & c, Point & point)
     A = calc_area(d, a1, e);
     B = calc_area(e, b1, f);
     C = calc_area(f, c1, d);
+    std::cout << A << " " << B << " " << C << " " << area << std::endl;
     if (A == 0 || B == 0 || C == 0)
         return false;
     if (area == A + B + C)

@@ -5,9 +5,21 @@ AMateria::AMateria()
 {
 
 }
+
+AMateria::AMateria(AMateria const & src)
+{
+    *this = src;
+}
+
 AMateria::~AMateria()
 {
 
+}
+
+AMateria & AMateria::operator= (AMateria const & src)
+{
+    this->type = src.getType();
+    return *this;
 }
 
 AMateria::AMateria(std::string const & type) : type(type)

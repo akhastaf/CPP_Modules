@@ -37,7 +37,6 @@ Fixed const &   Point::getX() const
 Fixed  const &  Point::getY() const
 {
 
-    std::cout << "Y : " << this->_y << std::endl;
     return this->_y;
 }
 

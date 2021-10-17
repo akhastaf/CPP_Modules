@@ -4,7 +4,7 @@
 #include "contact.hpp"
 
 class Phonebook {
-
+    
     Contact contacts[8];
     int index;
 

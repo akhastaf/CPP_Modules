@@ -3,9 +3,9 @@
 int main( void )
 {
     Point a;
-    Point b(3.7, 5.2);
-    Point c(9.45, 15.2);
-    Point x(0, 0);
+    Point b(0, 10);
+    Point c(20.5, 0);
+    Point x(3, 3);
     
     // std::cout << "A" << a << " B" << b << " C" << c << " X" << x << std::endl;
     if (bsp(a, b, c, x))
